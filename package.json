@@ -1,8 +1,11 @@
 {
-  "name": "datapointjs",
+  "name": "datapoint-meteorology",
   "version": "1.0.0",
   "description": "JavaScript API for Met Office DataPoint API",
   "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "npm test && npm run lint && tsc",
     "lint": "eslint -c .eslintrc.js 'src/**/*.{js,ts,tsx}' --fix",
