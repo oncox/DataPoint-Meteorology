@@ -26,19 +26,21 @@ const locations:any = {
 
 describe('Options tests', () => { // the tests container
   let mock: MockAdapter;
+  const key:string = '01234567-89ab-cdef-ghij-klmnopqrstuv'
 
   before(() => {
     mock = new MockAdapter(axios);
 
     mock.onGet(`${constants.baseURL}/val/wxobs/all/json/sitelist`,
       {
-        params: { key: constants.key },
+        params: { key: key },
       })
       .reply(200, locations);
   });
 
   it('Test getSites function', async ():Promise<void> => {
-    const { Observations } = Datapoint(constants.key);
+
+    const { Observations } = Datapoint(key);
     const sites:Site[] = await Observations.sitelist();
 
     expect(sites).to.be.an('array');
