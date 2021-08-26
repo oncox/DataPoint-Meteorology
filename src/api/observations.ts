@@ -1,20 +1,26 @@
-import axios, { AxiosResponse } from 'axios';
+import sitelist from '../common/sitelist';
+import capabilities from '../common/capabilities';
+import values from '../common/values';
 import Site from '../models/site';
-import constants from '../constants';
+import {WxobsReport, Report} from '../models/reports';
+import Record from '../models/record';
 
-export default (key: string): any => ({
-  sitelist: (): Promise<Site[]> =>
-    new Promise<Site[]>((resolve, reject) => {
-      axios
-        .get(`${constants.baseURL}/val/wxobs/all/json/sitelist`, {
-          params: { key },
-        })
-        .then((response: AxiosResponse) => {
-          const locations: Site[] = response.data.Locations.Location.map((l: IRawSite) => new Site(l));
-          resolve(locations);
-        })
-        .catch((error: Error) => {
-          reject(error);
-        });
-    }),
+export default (key: string): IObservations => ({
+  frequencies: ['hourly'],
+  sitelist: (): Promise<Site[]> => {
+    return sitelist(key, 'wxobs');
+  },
+  capabilities: (frequency: ObsFrequencies): Promise<Date[]> => {
+    return capabilities(key, 'wxobs', frequency);
+  },
+  values: (frequency: ObsFrequencies, options?:{site?:ISite, time?:Date}): Promise<Record<WxobsReport>[]> => {
+
+    return new Promise((resolve, reject) => {
+      values(key, 'wxobs', frequency, options)
+      .then(records => {
+        resolve(records['SiteRep']['DV']['Location'].map((location:any) => new Record<WxobsReport>(WxobsReport, location)));
+      })
+      .catch(reject);
+    });
+  },
 });
