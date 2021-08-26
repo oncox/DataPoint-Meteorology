@@ -1,21 +1,22 @@
-import {Report} from './reports';
+import Report from './report';
 import Site from './site';
 
-export default class Record<T extends Report> extends Site  {
+export default class Record<T extends Report> extends Site {
+  country: string;
 
-    country:string;
-    continent:string;
-    Period:T[]
+  continent: string;
 
-    constructor(type:new (startDate:Date, element:IReport) => T, values:IValues) {
-        super({id:values.i, latitude:values.lat, longitude:values.lon, ...values});
+  Period: T[];
 
-        this.country = values.country;
-        this.continent = values.continent;
-        this.Period = values.Period.map((period:IPeriod) => {
-        return period['Rep'].map((report:IReport) => {
-            return new type(new Date(period.value), report)
-        })
-        }).flat();
-    }
+  constructor(Type: new (startDate: Date, element: IReport) => T, values: IValues) {
+    super({ id: values.i, latitude: values.lat, longitude: values.lon, ...values });
+
+    this.country = values.country;
+    this.continent = values.continent;
+    this.Period = values.Period.map((period: IPeriod) => {
+      return period.Rep.map((report: IReport) => {
+        return new Type(new Date(period.value), report);
+      });
+    }).flat();
+  }
 }

@@ -13,15 +13,7 @@ export default class Site implements ISite {
 
   unitaryAuthArea: string;
 
-  constructor({ 
-    id, 
-    elevation, 
-    latitude, 
-    longitude, 
-    name,
-    region,
-    unitaryAuthArea
-  }: ISite) {
+  constructor({ id, elevation, latitude, longitude, name, region, unitaryAuthArea }: ISite) {
     this.elevation = parseFloat(`${elevation}`);
     this.id = parseInt(`${id}`, 10);
     this.latitude = parseFloat(`${latitude}`);
