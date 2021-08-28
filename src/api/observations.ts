@@ -10,7 +10,7 @@ export default (key: string): IObservations => ({
   sitelist: (): Promise<Site[]> => {
     return sitelist(key, 'wxobs');
   },
-  capabilities: (frequency: ObsFrequencies="hourly"): Promise<Date[]> => {
+  capabilities: (frequency: ObsFrequencies = 'hourly'): Promise<Date[]> => {
     return capabilities(key, 'wxobs', frequency);
   },
   values: (frequency: ObsFrequencies, options?: { site?: ISite; time?: Date }): Promise<Record<WxobsReport>[]> => {
