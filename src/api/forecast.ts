@@ -10,7 +10,7 @@ export default (key: string): IForecast => ({
   sitelist: (): Promise<Site[]> => {
     return sitelist(key, 'wxfcs');
   },
-  capabilities: (frequency: ForecastFrequencies): Promise<Date[]> => {
+  capabilities: (frequency: ForecastFrequencies="3hourly"): Promise<Date[]> => {
     return capabilities(key, 'wxfcs', frequency);
   },
   values: (frequency: ForecastFrequencies, options?: { site?: ISite; time?: Date }): Promise<Record<WxfcsReport>[]> => {
