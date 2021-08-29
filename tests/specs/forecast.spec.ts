@@ -15,7 +15,7 @@ describe('Options tests', () => { // the tests container
 
   before(() => {
     const consoleTransport:any = new winston.transports.Console()
-    const myWinstonOptions:any = {
+    const myWinstonOptions = {
       transports: [consoleTransport]
     }
     logger = winston.createLogger(myWinstonOptions)
