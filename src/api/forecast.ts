@@ -21,7 +21,9 @@ export default (key: string): IForecast => ({
     return new Promise((resolve, reject) => {
       values(key, 'wxfcs', frequency, options)
         .then((records) => {
-          resolve(records.SiteRep.DV.Location.map((location: any) => new Record<WxfcsReport>(WxfcsReport, location)));
+          resolve(
+            records.SiteRep.DV.Location.map((location: IValues) => new Record<WxfcsReport>(WxfcsReport, location)),
+          );
         })
         .catch(reject);
     });

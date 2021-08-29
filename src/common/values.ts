@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse, AxiosError } from 'axios';
 import constants from './constants';
 
 export default (
@@ -36,6 +36,8 @@ export default (
 
         resolve(response.data);
       })
-      .catch(reject);
+      .catch((error: AxiosError) => {
+        reject(error.message);
+      });
   });
 };

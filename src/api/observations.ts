@@ -17,7 +17,9 @@ export default (key: string): IObservations => ({
     return new Promise((resolve, reject) => {
       values(key, 'wxobs', 'hourly', options)
         .then((records) => {
-          resolve(records.SiteRep.DV.Location.map((location: any) => new Record<WxobsReport>(WxobsReport, location)));
+          resolve(
+            records.SiteRep.DV.Location.map((location: IValues) => new Record<WxobsReport>(WxobsReport, location)),
+          );
         })
         .catch(reject);
     });
