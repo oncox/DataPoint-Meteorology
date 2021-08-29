@@ -13,9 +13,9 @@ export default (key: string): IObservations => ({
   capabilities: (frequency: ObsFrequencies = 'hourly'): Promise<Date[]> => {
     return capabilities(key, 'wxobs', frequency);
   },
-  values: (frequency: ObsFrequencies, options?: { site?: ISite; time?: Date }): Promise<Record<WxobsReport>[]> => {
+  values: (options?: { site?: ISite; time?: Date }): Promise<Record<WxobsReport>[]> => {
     return new Promise((resolve, reject) => {
-      values(key, 'wxobs', frequency, options)
+      values(key, 'wxobs', 'hourly', options)
         .then((records) => {
           resolve(records.SiteRep.DV.Location.map((location: any) => new Record<WxobsReport>(WxobsReport, location)));
         })

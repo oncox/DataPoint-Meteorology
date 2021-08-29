@@ -13,7 +13,11 @@ export default (key: string): IForecast => ({
   capabilities: (frequency: ForecastFrequencies = '3hourly'): Promise<Date[]> => {
     return capabilities(key, 'wxfcs', frequency);
   },
-  values: (frequency: ForecastFrequencies, options?: { site?: ISite; time?: Date }): Promise<Record<WxfcsReport>[]> => {
+  values: (
+    { frequency = '3hourly', ...options }: { frequency?: ForecastFrequencies; site?: ISite; time?: Date } = {
+      frequency: '3hourly',
+    },
+  ): Promise<Record<WxfcsReport>[]> => {
     return new Promise((resolve, reject) => {
       values(key, 'wxfcs', frequency, options)
         .then((records) => {

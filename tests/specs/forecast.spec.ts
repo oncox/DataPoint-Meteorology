@@ -42,11 +42,13 @@ describe('Options tests', () => { // the tests container
 
     const { Forecast } = Datapoint(key);
     
-    await expect(Forecast.values("3hourly", {
+    await expect(Forecast.values({
+      frequency:"3hourly",
       site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
     })).to.be.rejectedWith(`Unable to retrieve wxfcs data for site 99999999`)
 
-    await expect(Forecast.values("daily", {
+    await expect(Forecast.values({
+      frequency:"daily",
       site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
     })).to.be.rejectedWith(`Unable to retrieve wxfcs data for site 99999999`)
 
@@ -56,11 +58,10 @@ describe('Options tests', () => { // the tests container
 
     const { Forecast } = Datapoint(key);
     
-    await expect(Forecast.values("3hourly", {
+    await expect(Forecast.values({
+      frequency:"3hourly",
       site:new Site({'id':14, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
     }));
-
-
 
   }).timeout(50000);
 });

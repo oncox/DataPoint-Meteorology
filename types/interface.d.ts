@@ -9,14 +9,14 @@ interface IObservations {
     frequencies: Array<ObsFrequencies>;
     sitelist: () => Promise<ISite[]>;
     capabilities: (frequency:ObsFrequencies) => Promise<Date[]>;
-    values: (frequency:ObsFrequencies, options?:ValuesOptions) => Promise<any>;
+    values: (options?:{site?:ISite, time?:Date}) => Promise<any>;
   }
   
   interface IForecast {
     frequencies: Array<ForecastFrequencies>;
     sitelist: () => Promise<ISite[]>;
     capabilities: (frequency:ForecastFrequencies) => Promise<Date[]>;
-    values: (frequency:ForecastFrequencies, options?:{site?:ISite, time?:Date}) => Promise<any>;
+    values: (options?:{frequency?:ForecastFrequencies, site?:ISite, time?:Date}) => Promise<any>;
   }
   
   interface IDatapoint {

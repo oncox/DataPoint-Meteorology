@@ -41,7 +41,7 @@ describe('Options tests', () => { // the tests container
 
     const { Observations } = Datapoint(key);
     
-    await expect(Observations.values("hourly", {
+    await expect(Observations.values({
       site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
     })).to.be.rejectedWith(`Unable to retrieve wxobs data for site 99999999`)
 
@@ -51,7 +51,7 @@ describe('Options tests', () => { // the tests container
 
     const { Observations } = Datapoint(key);
     
-    await expect(Observations.values("hourly", {
+    await expect(Observations.values({
       site:new Site({'id':99142, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
     }));
     
