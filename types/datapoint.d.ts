@@ -21,6 +21,12 @@ interface ISiteList {
   }
 }
 
+interface ILogger {
+  info:(msg:string) => void, 
+  error:(msg:string) => void, 
+  warn:(msg:string) => void
+}
+
 
 
 

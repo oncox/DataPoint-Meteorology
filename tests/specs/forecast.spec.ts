@@ -1,6 +1,7 @@
 import chai, { expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import { describe, before, it } from 'mocha';
+import winston from 'winston';
 
 import Site from '../../src/models/site';
 import Datapoint from '../../src/api/datapoint';
@@ -8,11 +9,21 @@ import key from '../mocks/data/key';
 
 chai.use(chaiAsPromised)
 
+let logger:any;
+
 describe('Options tests', () => { // the tests container
+
+  before(() => {
+    const consoleTransport:any = new winston.transports.Console()
+    const myWinstonOptions:any = {
+      transports: [consoleTransport]
+    }
+    logger = winston.createLogger(myWinstonOptions)
+  })
 
   it('Test Forecast sitelist function', async ():Promise<void> => {
 
-    const { Forecast } = Datapoint(key);
+    const { Forecast } = Datapoint(key, logger);
     const sites:Site[] = await Forecast.sitelist();
 
     expect(sites).to.be.an('array');
@@ -24,7 +35,7 @@ describe('Options tests', () => { // the tests container
 
   it('Test Forecast capabilities function', async ():Promise<void> => {
 
-    const { Forecast } = Datapoint(key);
+    const { Forecast } = Datapoint(key, logger);
     let timeSteps:Date[]
 
     for (var item in Forecast.frequencies) {
@@ -40,7 +51,7 @@ describe('Options tests', () => { // the tests container
 
   it('Test Forecast values function for a null site', async ():Promise<void> => {
 
-    const { Forecast } = Datapoint(key);
+    const { Forecast } = Datapoint(key, logger);
     
     await expect(Forecast.values({
       frequency:"3hourly",
@@ -56,7 +67,7 @@ describe('Options tests', () => { // the tests container
 
   it('Test Forecast values function', async ():Promise<void> => {
 
-    const { Forecast } = Datapoint(key);
+    const { Forecast } = Datapoint(key, logger);
     
     await expect(Forecast.values({
       frequency:"3hourly",

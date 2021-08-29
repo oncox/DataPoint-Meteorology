@@ -3,12 +3,22 @@ import constants from './constants';
 
 export default (
   key: string,
+  logger: ILogger | undefined,
   type: Datatype,
   frequency: ObsFrequencies | ForecastFrequencies,
   options?: { site?: ISite; time?: Date },
 ): Promise<IValuesList> => {
   return new Promise<IValuesList>((resolve, reject) => {
     const id: String = options?.site?.id.toString() ?? 'all';
+
+    if (logger) {
+      logger.info(
+        `Requesting values from ${constants.baseURL}/val/${type}/all/json/${id} using ${JSON.stringify({
+          res: frequency,
+          time: options?.time,
+        })}`,
+      );
+    }
 
     axios
       .get<IValuesList>(`${constants.baseURL}/val/${type}/all/json/${id}`, {

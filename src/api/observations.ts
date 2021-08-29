@@ -5,17 +5,17 @@ import Site from '../models/site';
 import WxobsReport from '../models/wxobsreport';
 import Record from '../models/record';
 
-export default (key: string): IObservations => ({
+export default (key: string, logger?: ILogger): IObservations => ({
   frequencies: ['hourly'],
   sitelist: (): Promise<Site[]> => {
-    return sitelist(key, 'wxobs');
+    return sitelist(key, logger, 'wxobs');
   },
   capabilities: (frequency: ObsFrequencies = 'hourly'): Promise<Date[]> => {
-    return capabilities(key, 'wxobs', frequency);
+    return capabilities(key, logger, 'wxobs', frequency);
   },
   values: (options?: { site?: ISite; time?: Date }): Promise<Record<WxobsReport>[]> => {
     return new Promise((resolve, reject) => {
-      values(key, 'wxobs', 'hourly', options)
+      values(key, logger, 'wxobs', 'hourly', options)
         .then((records) => {
           resolve(
             records.SiteRep.DV.Location.map((location: IValues) => new Record<WxobsReport>(WxobsReport, location)),
