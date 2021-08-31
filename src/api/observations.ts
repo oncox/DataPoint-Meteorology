@@ -10,8 +10,8 @@ export default (key: string, logger?: ILogger): IObservations => ({
   sitelist: (): Promise<Site[]> => {
     return sitelist(key, logger, 'wxobs');
   },
-  capabilities: (frequency: ObsFrequencies = 'hourly'): Promise<Date[]> => {
-    return capabilities(key, logger, 'wxobs', frequency);
+  capabilities: (): Promise<Date[]> => {
+    return capabilities(key, logger, 'wxobs', 'hourly');
   },
   values: (options?: { site?: ISite; time?: Date }): Promise<Record<WxobsReport>[]> => {
     return new Promise((resolve, reject) => {
