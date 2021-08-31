@@ -42,7 +42,7 @@ logger = winston.createLogger({
   transports: [new winston.transports.Console()]
 })
 
-{Observations, Forecasts} = datapoint(apiKey, logger)
+{Observations, Forecast} = datapoint(apiKey, logger)
 ```
 
  ### Observations
