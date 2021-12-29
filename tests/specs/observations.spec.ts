@@ -42,7 +42,7 @@ describe('Options tests', () => { // the tests container
     const { Observations } = Datapoint(key);
     
     await expect(Observations.values({
-      site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
+      site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':''})
     })).to.be.rejectedWith(`Unable to retrieve wxobs data for site 99999999`)
 
   }).timeout(50000);
@@ -52,7 +52,7 @@ describe('Options tests', () => { // the tests container
     const { Observations } = Datapoint(key);
     
     await expect(Observations.values({
-      site:new Site({'id':99142, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
+      site:new Site({'id':99142, 'elevation':0, 'latitude':0, 'longitude':0, 'name':''})
     }));
     
 

@@ -53,12 +53,12 @@ describe('Options tests', () => { // the tests container
     
     await expect(Forecast.values({
       frequency:"3hourly",
-      site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
+      site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':''})
     })).to.be.rejectedWith(`Unable to retrieve wxfcs data for site 99999999`)
 
     await expect(Forecast.values({
       frequency:"daily",
-      site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
+      site:new Site({'id':99999999, 'elevation':0, 'latitude':0, 'longitude':0, 'name':''})
     })).to.be.rejectedWith(`Unable to retrieve wxfcs data for site 99999999`)
 
   }).timeout(50000);
@@ -69,7 +69,7 @@ describe('Options tests', () => { // the tests container
     
     await expect(Forecast.values({
       frequency:"3hourly",
-      site:new Site({'id':14, 'elevation':0, 'latitude':0, 'longitude':0, 'name':'','region':'', 'unitaryAuthArea':''})
+      site:new Site({'id':14, 'elevation':0, 'latitude':0, 'longitude':0, 'name':''})
     }));
 
   }).timeout(50000);

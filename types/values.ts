@@ -27,11 +27,11 @@ interface ISite {
     latitude: number;
     longitude: number;
     name: string;
-    region: string;
-    unitaryAuthArea: string;
-}
+    region?: string;
+    unitaryAuthArea?: string;
+}  
 
-type IValues = Omit<ISite, 'region', 'unitaryAuthArea', 'id', 'latitude', 'longitude'> & {
+type IValues = Omit<ISite, 'region'|'unitaryAuthArea'|'id'|'latitude'|'longitude'> & {
     i: number,
     lat: number,
     lon: number,
