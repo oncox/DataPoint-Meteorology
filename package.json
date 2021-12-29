@@ -1,6 +1,6 @@
 {
   "name": "metoffice-datapoint",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "JavaScript API for Met Office DataPoint API",
   "main": "dist/src/index.js",
   "files": [
