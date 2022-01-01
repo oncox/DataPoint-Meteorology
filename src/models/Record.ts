@@ -1,5 +1,5 @@
-import Report from './report';
-import Site from './site';
+import Report from './Report';
+import Site from './Site';
 import { IValues, IReport, IPeriod } from '../../types';
 
 export default class Record<T extends Report> extends Site {

@@ -1,4 +1,4 @@
-import Report from './report';
+import Report from './Report';
 import { IReport } from '../../types';
 
 export default class WxobsReport extends Report {
