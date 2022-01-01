@@ -1,3 +1,6 @@
+import { ObsFrequencies, ForecastFrequencies} from './datapoint'
+import { ISite} from './values'
+
 interface IConstants {
     key: string;
     maxDailyRate: number;

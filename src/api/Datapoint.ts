@@ -1,5 +1,5 @@
-import Forecast from './forecast';
-import Observations from './observations';
+import Forecast from './Forecast';
+import Observations from './Observations';
 import { ILogger, IDatapoint } from '../../types';
 
 export default (key: string, logger?: ILogger): IDatapoint => ({

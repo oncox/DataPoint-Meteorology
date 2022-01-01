@@ -1,5 +1,5 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import constants from './constants';
+import constants from './Constants';
 import {
   ILogger,
   Datatype,

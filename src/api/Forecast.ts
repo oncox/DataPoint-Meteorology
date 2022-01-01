@@ -1,9 +1,9 @@
-import sitelist from '../common/sitelist';
-import capabilities from '../common/capabilities';
-import values from '../common/values';
-import Site from '../models/site';
-import WxfcsReport from '../models/wxfcsreport';
-import Record from '../models/record';
+import sitelist from '../common/Sitelist';
+import capabilities from '../common/Capabilities';
+import values from '../common/Values';
+import Site from '../models/Site';
+import WxfcsReport from '../models/WxfcsReport';
+import Record from '../models/Record';
 import { ILogger, ForecastFrequencies, ISite, IForecast, IValues } from '../../types';
 
 export default (key: string, logger?: ILogger): IForecast => ({

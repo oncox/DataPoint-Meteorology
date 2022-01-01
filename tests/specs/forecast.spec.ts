@@ -3,8 +3,8 @@ import chaiAsPromised from 'chai-as-promised';
 import { describe, before, it } from 'mocha';
 import winston from 'winston';
 
-import Site from '../../src/models/site';
-import Datapoint from '../../src/api/datapoint';
+import Site from '../../src/models/Site';
+import Datapoint from '../../src/api/Datapoint';
 import key from '../mocks/data/key';
 
 chai.use(chaiAsPromised)

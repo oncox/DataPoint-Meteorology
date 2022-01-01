@@ -1,7 +1,7 @@
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 
-import constants from '../../src/common/constants';
+import constants from '../../src/common/Constants';
 import locations from './data/locations';
 import capabilitiesMockData from './data/capabilitiesMockData';
 import nullSiteMockData from './data/nullSiteMockData';

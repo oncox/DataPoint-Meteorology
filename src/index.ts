@@ -1,3 +1,3 @@
-import Datapoint from './api/datapoint';
+import Datapoint from './api/Datapoint';
 
 export = Datapoint;

@@ -1,9 +1,9 @@
-import sitelist from '../common/sitelist';
-import capabilities from '../common/capabilities';
-import values from '../common/values';
-import Site from '../models/site';
-import WxobsReport from '../models/wxobsreport';
-import Record from '../models/record';
+import sitelist from '../common/Sitelist';
+import capabilities from '../common/Capabilities';
+import values from '../common/Values';
+import Site from '../models/Site';
+import WxobsReport from '../models/WxobsReport';
+import Record from '../models/Record';
 import { ILogger, ISite, IValues, IObservations } from '../../types';
 
 export default (key: string, logger?: ILogger): IObservations => ({

@@ -1,4 +1,4 @@
-
+import {ISite} from './values'
 
 type Datatype = 'wxobs' | 'wxfcs';
 type ObsFrequencies = 'hourly';
