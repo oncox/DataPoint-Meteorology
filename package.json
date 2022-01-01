@@ -3,8 +3,10 @@
   "version": "1.4.0",
   "description": "JavaScript API for Met Office DataPoint API",
   "main": "dist/src/index.js",
+  "types": "types/index.d.ts",
   "files": [
-    "/dist"
+    "/dist",
+    "/types"
   ],
   "scripts": {
     "build": "npm test && npm run lint && tsc",
