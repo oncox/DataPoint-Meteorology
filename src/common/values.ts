@@ -1,5 +1,15 @@
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import constants from './constants';
+import {
+  ILogger,
+  Datatype,
+  ObsFrequencies,
+  ForecastFrequencies,
+  ISite,
+  IPeriod,
+  IValues,
+  IValuesList,
+} from '../../types';
 
 export default (
   key: string,

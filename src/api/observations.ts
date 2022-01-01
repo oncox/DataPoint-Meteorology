@@ -4,6 +4,7 @@ import values from '../common/values';
 import Site from '../models/site';
 import WxobsReport from '../models/wxobsreport';
 import Record from '../models/record';
+import { ILogger, ISite, IValues, IObservations } from '../../types';
 
 export default (key: string, logger?: ILogger): IObservations => ({
   frequencies: ['hourly'],

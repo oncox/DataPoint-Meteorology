@@ -1,3 +1,5 @@
+import { ISite } from '../../types';
+
 export default class Site implements ISite {
   elevation: number;
 

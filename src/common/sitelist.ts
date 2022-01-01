@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import Site from '../models/site';
 import constants from './constants';
+import { ILogger, ISiteList, ISite } from '../../types';
 
 export default (key: string, logger: ILogger | undefined, type: 'wxobs' | 'wxfcs'): Promise<Site[]> => {
   return new Promise<Site[]>((resolve, reject) => {

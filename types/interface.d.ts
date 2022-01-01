@@ -24,3 +24,9 @@ interface IObservations {
     Forecast: IForecast;
   }
   
+  export {
+    IConstants,
+    IObservations,
+    IForecast,
+    IDatapoint
+  }

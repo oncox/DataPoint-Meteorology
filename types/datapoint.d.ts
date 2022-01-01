@@ -27,6 +27,15 @@ interface ILogger {
   warn:(msg:string) => void
 }
 
+export {
+  Datatype,
+  ObsFrequencies,
+  ForecastFrequencies,
+  ICapabilities,
+  ISiteList,
+  ILogger
+}
+
 
 
 

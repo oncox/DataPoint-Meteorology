@@ -1,5 +1,6 @@
 import Report from './report';
 import Site from './site';
+import { IValues, IReport, IPeriod } from '../../types';
 
 export default class Record<T extends Report> extends Site {
   Period: T[];

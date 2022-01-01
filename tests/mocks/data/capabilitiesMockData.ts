@@ -1,3 +1,5 @@
+import {ObsFrequencies, ForecastFrequencies, Datatype} from '../../../types'
+
 const capabilitiesMockData = (frequency:ObsFrequencies|ForecastFrequencies, datatype:Datatype) :any => {
 
     return {

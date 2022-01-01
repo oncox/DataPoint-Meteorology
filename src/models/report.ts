@@ -1,3 +1,5 @@
+import { IReport } from '../../types';
+
 export default class Report {
   G: number;
 

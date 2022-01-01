@@ -1,3 +1,5 @@
+import {ISiteList} from '../../../types'
+
 const locations:ISiteList = {
 Locations: {
     Location: [

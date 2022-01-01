@@ -4,6 +4,7 @@ import values from '../common/values';
 import Site from '../models/site';
 import WxfcsReport from '../models/wxfcsreport';
 import Record from '../models/record';
+import { ILogger, ForecastFrequencies, ISite, IForecast, IValues } from '../../types';
 
 export default (key: string, logger?: ILogger): IForecast => ({
   frequencies: ['3hourly', 'daily'],

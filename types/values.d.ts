@@ -55,3 +55,11 @@ interface IValuesList {
         }
     }
 }
+
+export {
+    IReport,
+    IPeriod,
+    ISite,
+    IValues,
+    IValuesList
+}

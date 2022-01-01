@@ -1,4 +1,5 @@
 import Report from './report';
+import { IReport } from '../../types';
 
 export default class WxfcsReport extends Report {
   F: number;
